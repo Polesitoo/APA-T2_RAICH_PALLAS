@@ -60,7 +60,7 @@ comprobarse las siguientes condiciones:
 - `mcm(num1, num2)`: Al ejecutar `mcm(90, 14)`, la salida debe ser `630`.
 - `mcd(num1, num2)`: Al ejecutar `mcd(924, 780)`, la salida debe ser `12`.
 - `mcmN(numeros)`: Al ejecutar `mcm(42, 60, 70, 63)`, la salida debe ser `1260`.
-- `mcdN(numeros)`: Al ejecutar `mcd(820, 630, 1050, 1470)`, la salida debe ser `210`.
+- `mcdN(numeros)`: Al ejecutar `mcd(840, 630, 1050, 1470)`, la salida debe ser `210`.
 
 ### Entrega
 
@@ -145,8 +145,8 @@ def mcmN(*nums):
 
 def mcdN(*nums):
     """Devuelve el máximo común divisor de todos los argumentos
-    >>> mcdN(820, 630, 1050, 1470)
-    10"""
+    >>> mcdN(840, 630, 1050, 1470)
+    210"""
     MCD = nums[0]
     for num in nums[1:]:
         MCD = mcd(MCD, num)

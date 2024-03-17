@@ -66,8 +66,8 @@ def mcmN(*nums):
 
 def mcdN(*nums):
     """Devuelve el máximo común divisor de todos los argumentos
-    >>> mcdN(820, 630, 1050, 1470)
-    10"""
+    >>> mcdN(840, 630, 1050, 1470)
+    210"""
     MCD = nums[0]
     for num in nums[1:]:
         MCD = mcd(MCD, num)
