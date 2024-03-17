@@ -19,8 +19,7 @@ def descompon(num):
     """Devuelve una tupla con la descomposición en números primos del argumento ordenada de menor a mayor
     En este caso utilizamos La Propiedad de los número primos donde si un numero compuesto n tiene un divisor d, d <= sqrt(n)
     >>> descompon(36 * 175 * 143)
-    (2, 2, 3, 3, 5, 5, 7, 11, 13)"""
-    
+    (2, 2, 3, 3, 5, 5, 7, 11, 13)"""    
     desc = []
     divisor = 2    
     while divisor * divisor <= num:
@@ -59,8 +58,7 @@ def mcd(num1, num2):
 def mcmN(*nums):
     """Devuelve el mínimo común múltiplo de todos los argumentos
     >>> mcmN(42, 60, 70, 63)
-    1260
-    """
+    1260"""
     MCM = 1
     for i in range(len(nums)):
         MCM = mcm(MCM, nums[i])
@@ -69,8 +67,7 @@ def mcmN(*nums):
 def mcdN(*nums):
     """Devuelve el máximo común divisor de todos los argumentos
     >>> mcdN(820, 630, 1050, 1470)
-    10
-    """
+    10"""
     MCD = nums[0]
     for num in nums[1:]:
         MCD = mcd(MCD, num)
