@@ -40,14 +40,14 @@ def descompon(num):
      
     desc = []
     divisor = 2    
-    while divisor ** 2 <= num:
-        if num % divisor == 0:
+    while divisor ** 2 <= num:  #Si d**2 > n ya no existen más divisores por lo tanto termina el bucle
+        if num % divisor == 0:  #Si la división es exacta forma parte de la descomposición
             desc.append(divisor)
-            num //= divisor
-        else:
-            divisor += 1    
-    if num > 1:
-        desc.append(num)    
+            num //= divisor     #Dividimos el número por el divisor como cuando hacemos la descomposición
+        else:                   # manualmente
+            divisor += 1        #Si la división NO es exacta aumentamos divisor para ir probando hasta sqrt(num)
+    if num > 1:                 # como máximo
+        desc.append(num)        #Si el último valor de num es mayor que 1, significa que es un primo divisor
     return tuple(desc)
 
 
@@ -60,24 +60,24 @@ def mcm(num1, num2):
     
     desc1 = descompon(num1)
     desc2 = descompon(num2)
-    mCmList = list(desc1)
-    for i in range(len(desc2)):
-        quantInDesc1 = mCmList.count(desc2[i])
+    mCmList = list(desc1)                   #Añadimos todos los múltiplos del num1 a la lista
+    for i in range(len(desc2)):             #Recorremos los múltiplos de num2
+        quantInDesc1 = mCmList.count(desc2[i])     
         quantInDesc2 = desc2.count(desc2[i])
-        if quantInDesc1 < quantInDesc2:
-            n = quantInDesc2 - quantInDesc1
-            for j in range(n):
+        if quantInDesc1 < quantInDesc2:     #Comprueba si los múltiplos están ya en la lista y si lo estan, nos
+            n = quantInDesc2 - quantInDesc1 #aseguramos que coja la máxima cantidad de ellos (la máxima potencia)
+            for j in range(n):                 
                 mCmList.append(desc2[i])       
-    return math.prod(mCmList)
+    return math.prod(mCmList)               #Devuelve el producto de todos los múltiplos de la lista, ese es el mcm
 
 
 def mcd(num1, num2):
     """Devuelve el máximo común divisor de los dos argumentos.
-    Utilizando la propiedad: mcd(a, b) = a * b / mcm(a, b)
     >>> mcd(924, 780)
     12
     """
-    
+
+    #Utilizando la relación: n1*n2 = mcd(n1, n2) * mcm(n1, n2)
     return num1 * num2 // mcm(num1, num2)
 
 
@@ -112,7 +112,7 @@ if __name__ == "__main__":
 
 
 """
-FUNCIÓN ANTIGUA DE DESCOMPOSICIÓN - ÉS MUY LENTA
+FUNCIÓN ANTIGUA DE DESCOMPOSICIÓN - ÉS MUY LENTA (por culpa de la función primos(num))
 def descompon(num):    
     listaPrimos = primos(num)
     desc = []
