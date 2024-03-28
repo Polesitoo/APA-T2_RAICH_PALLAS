@@ -152,11 +152,11 @@ def mcm(num1, num2):
 
 def mcd(num1, num2):
     """Devuelve el máximo común divisor de los dos argumentos.
-    Utilizando la propiedad: mcd(a, b) = a * b / mcm(a, b)
     >>> mcd(924, 780)
     12
     """
-    #Utilizamos la relación del producto de dos número con su mcm. n1*n2 = mcd(n1, n2) * mcm(n1, n2)
+
+    #Utilizando la relación: n1*n2 = mcd(n1, n2) * mcm(n1, n2)
     return num1 * num2 // mcm(num1, num2)
 
 
