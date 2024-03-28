@@ -32,14 +32,15 @@ def primos(lim):
 def descompon(num):
     """
     Devuelve una tupla con la descomposición en números primos del argumento ordenada de menor a mayor
-    En este caso utilizamos La Propiedad de los número primos donde si un numero compuesto n tiene un divisor d, d <= sqrt(n)
+    En este caso utilizamos La Propiedad de los número primos donde si un numero compuesto n tiene
+    un divisor d, d <= sqrt(n)
     >>> descompon(36 * 175 * 143)
     (2, 2, 3, 3, 5, 5, 7, 11, 13)
     """   
      
     desc = []
     divisor = 2    
-    while divisor * divisor <= num:
+    while divisor ** 2 <= num:
         if num % divisor == 0:
             desc.append(divisor)
             num //= divisor
